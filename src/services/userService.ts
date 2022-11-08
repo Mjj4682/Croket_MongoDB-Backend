@@ -1,11 +1,11 @@
 import User from "../models/User";
-import { createUser, login } from "../models/IUser";
+import { createUser, login, regSeller } from "../models/IUser";
 import { errorConstructor } from "../middlewares/errorConstructor";
 import jwt from "jsonwebtoken";
 
 const createUser = async (userData: createUser) => {
   const user = new User(userData);
-  user.save();
+  await user.save();
 };
 
 const login = async (loginData: login) => {
@@ -24,4 +24,8 @@ const login = async (loginData: login) => {
   return token;
 };
 
-export { createUser, login };
+const regSeller = async (userEmail: regSeller) => {
+  await User.where("email", userEmail).updateOne({ $set: { seller: true } });
+};
+
+export { createUser, login, regSeller };

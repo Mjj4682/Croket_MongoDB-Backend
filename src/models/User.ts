@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  seller: { type: Boolean, required: false, default: false },
   date: {
     type: String,
     default: moment().format("YYYY-MM-DD HH:mm:ss"),

@@ -25,4 +25,4 @@ const validateToken = async (
   }
 };
 
-export { validateToken };
+export default validateToken;

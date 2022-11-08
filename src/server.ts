@@ -6,7 +6,7 @@ const startServer = async () => {
   dotenv.config();
   const app = createApp();
   const PORT = process.env.PORT;
-  const db = "mongodb://localhost:27017/croket";
+  const db = `mongodb://localhost:27017/${process.env.DB_NAME}`;
   connect({ db });
   app.listen(PORT, () => {
     console.log(`Listening on Port ${PORT}`);
