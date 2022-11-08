@@ -1,15 +1,21 @@
-import asyncHandler from "express-async-handler";
-import { errorConstructor } from "../middlewares/errorConstructor";
+import { Request, Response } from "express";
 import * as userService from "../services/userService";
-import { createUser } from "../models/IUser";
+import { createUser, login } from "../models/IUser";
 
-const createUser = asyncHandler(async (req, res) => {
+interface CustomRequest extends Request {
+  decoded: string;
+}
+
+const createUser = async (req: CustomRequest, res: Response) => {
   const { name, email, password }: createUser = req.body;
-  if (!name || !email || !password) {
-    throw new errorConstructor(400, "필수값이 없습니다.");
-  }
   await userService.createUser({ name, email, password });
   res.status(201).json({ message: "created user" });
-});
+};
 
-export { createUser };
+const login = async (req: Request, res: Response) => {
+  const { email, password }: login = req.body;
+  const token = await userService.login({ email, password });
+  res.status(201).json({ token });
+};
+
+export { createUser, login };
