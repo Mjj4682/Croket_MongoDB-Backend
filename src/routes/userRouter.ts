@@ -9,6 +9,6 @@ router.post("/", asyncHandler(userController.createUser));
 
 router.post("/login", asyncHandler(userController.login));
 
-router.post("/seller", validateToken, asyncHandler(userController.regSeller));
+router.patch("/seller", validateToken, asyncHandler(userController.regSeller));
 
 export default router;
