@@ -16,3 +16,7 @@ export interface login {
   email: string;
   password: string;
 }
+
+export interface regSeller {
+  email: string;
+}
