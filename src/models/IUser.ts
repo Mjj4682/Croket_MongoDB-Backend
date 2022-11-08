@@ -11,3 +11,8 @@ export interface createUser {
   password: string;
   date?: Date;
 }
+
+export interface login {
+  email: string;
+  password: string;
+}

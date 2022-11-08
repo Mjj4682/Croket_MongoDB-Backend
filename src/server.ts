@@ -1,9 +1,9 @@
 import createApp from "./app";
 import dotenv from "dotenv";
 import connect from "./models/db";
-dotenv.config();
 
 const startServer = async () => {
+  dotenv.config();
   const app = createApp();
   const PORT = process.env.PORT;
   const db = "mongodb://localhost:27017/croket";
