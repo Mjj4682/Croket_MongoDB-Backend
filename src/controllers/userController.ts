@@ -21,7 +21,7 @@ const login = async (req: Request, res: Response) => {
 const regSeller = async (req: CustomRequest, res: Response) => {
   const userEmail: regSeller = req.decoded.email;
   await userService.regSeller(userEmail);
-  res.status(201).json({ message: "created seller" });
+  res.status(201).json({ message: "registered seller" });
 };
 
 export { createUser, login, regSeller };
