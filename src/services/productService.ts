@@ -11,4 +11,8 @@ const updateProduct = async (productData: updateProduct) => {
   await Product.updateOne({ _id }, { $set: productData });
 };
 
-export { createProduct, updateProduct };
+const deleteProduct = async (_id: string) => {
+  await Product.updateOne({ _id }, { $set: { isDeleted: true } });
+};
+
+export { createProduct, updateProduct, deleteProduct };
