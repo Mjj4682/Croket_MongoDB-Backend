@@ -7,4 +7,10 @@ const router: Router = express.Router();
 
 router.post("/", validateToken, asyncHandler(productController.createProduct));
 
+router.patch(
+  "/:id",
+  validateToken,
+  asyncHandler(productController.updateProduct)
+);
+
 export default router;
