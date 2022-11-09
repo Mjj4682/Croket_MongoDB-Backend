@@ -60,4 +60,10 @@ const deleteProduct = async (req: Request, res: Response) => {
   res.status(204).json();
 };
 
-export { createProduct, updateProduct, deleteProduct };
+const getProduct = async (req: Request, res: Response) => {
+  const _id = req.params.id;
+  const productInfo = await productService.getProduct(_id);
+  res.status(200).json({ productInfo });
+};
+
+export { createProduct, updateProduct, deleteProduct, getProduct };
