@@ -19,7 +19,8 @@ const login = async (loginData: login) => {
   if (!secretKey) {
     throw new errorConstructor(400, "잘못된 접근입니다.");
   }
-  const payLoad = { email };
+  const sellerId = (await User.findOne({ email }))?._id;
+  const payLoad = { sellerId, email };
   const token = jwt.sign(payLoad, secretKey);
   return token;
 };
