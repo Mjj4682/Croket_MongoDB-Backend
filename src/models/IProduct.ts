@@ -23,3 +23,14 @@ export interface createProduct {
   deadline: Date;
   sellerId?: mongoose.Schema.Types.ObjectId;
 }
+
+export interface updateProduct {
+  _id?: string;
+  name?: string;
+  description?: string;
+  img?: string;
+  price?: mongoose.Types.Decimal128;
+  category?: string;
+  country?: string;
+  deadline?: Date;
+}
