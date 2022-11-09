@@ -19,4 +19,6 @@ router.delete(
   asyncHandler(productController.deleteProduct)
 );
 
+router.get("/:id", validateToken, asyncHandler(productController.getProduct));
+
 export default router;

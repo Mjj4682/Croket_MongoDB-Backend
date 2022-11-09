@@ -15,4 +15,8 @@ const deleteProduct = async (_id: string) => {
   await Product.updateOne({ _id }, { $set: { isDeleted: true } });
 };
 
-export { createProduct, updateProduct, deleteProduct };
+const getProduct = async (_id: string) => {
+  return await Product.findById({ _id });
+};
+
+export { createProduct, updateProduct, deleteProduct, getProduct };
