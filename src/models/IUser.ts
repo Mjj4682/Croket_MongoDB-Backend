@@ -2,7 +2,8 @@ export interface IUser {
   name: string;
   email: string;
   password: string;
-  date: Date;
+  seller: Boolean;
+  createdAt: Date;
 }
 
 export interface createUser {
