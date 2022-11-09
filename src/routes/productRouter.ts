@@ -13,4 +13,10 @@ router.patch(
   asyncHandler(productController.updateProduct)
 );
 
+router.delete(
+  "/:id",
+  validateToken,
+  asyncHandler(productController.deleteProduct)
+);
+
 export default router;
