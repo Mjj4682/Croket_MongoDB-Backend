@@ -7,4 +7,10 @@ const router: Router = express.Router();
 
 router.post("/", validateToken, asyncHandler(marketController.registerMarket));
 
+router.patch(
+  "/:_id",
+  validateToken,
+  asyncHandler(marketController.updateMarket)
+);
+
 export default router;

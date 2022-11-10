@@ -5,3 +5,9 @@ export interface IMarket {
   country: string;
   productId: mongoose.Schema.Types.ObjectId;
 }
+
+export interface updateMarket {
+  _id?: string;
+  category?: string;
+  country?: string;
+}

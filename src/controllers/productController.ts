@@ -21,7 +21,7 @@ const createProduct = async (req: CustomRequest, res: Response) => {
 };
 
 const updateProduct = async (req: Request, res: Response) => {
-  const _id = req.params.id;
+  const { _id } = req.params;
   const { name, description, img, price, deadline }: updateProduct = req.body;
   await productService.updateProduct({
     _id,
@@ -35,13 +35,13 @@ const updateProduct = async (req: Request, res: Response) => {
 };
 
 const deleteProduct = async (req: Request, res: Response) => {
-  const _id = req.params.id;
+  const { _id } = req.params;
   await productService.deleteProduct(_id);
   res.status(204).json();
 };
 
 const getProduct = async (req: Request, res: Response) => {
-  const _id = req.params.id;
+  const { _id } = req.params;
   const productInfo = await productService.getProduct(_id);
   res.status(200).json({ productInfo });
 };

@@ -8,17 +8,17 @@ const router: Router = express.Router();
 router.post("/", validateToken, asyncHandler(productController.createProduct));
 
 router.patch(
-  "/:id",
+  "/:_id",
   validateToken,
   asyncHandler(productController.updateProduct)
 );
 
 router.delete(
-  "/:id",
+  "/:_id",
   validateToken,
   asyncHandler(productController.deleteProduct)
 );
 
-router.get("/:id", validateToken, asyncHandler(productController.getProduct));
+router.get("/:_id", validateToken, asyncHandler(productController.getProduct));
 
 export default router;
