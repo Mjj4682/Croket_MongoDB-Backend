@@ -8,8 +8,6 @@ const ProductSchema = new mongoose.Schema({
   description: { type: String, required: true },
   img: { type: String, required: true },
   price: { type: mongoose.Types.Decimal128, required: true },
-  category: { type: String, required: true },
-  country: { type: String, required: true },
   deadline: {
     type: String,
     required: true,

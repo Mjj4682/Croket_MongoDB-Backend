@@ -8,22 +8,12 @@ interface CustomRequest extends Request {
 
 const createProduct = async (req: CustomRequest, res: Response) => {
   const { sellerId } = req.decoded;
-  const {
-    name,
-    description,
-    img,
-    price,
-    category,
-    country,
-    deadline,
-  }: createProduct = req.body;
+  const { name, description, img, price, deadline }: createProduct = req.body;
   await productService.createProduct({
     name,
     description,
     img,
     price,
-    category,
-    country,
     deadline,
     sellerId,
   });
@@ -31,37 +21,27 @@ const createProduct = async (req: CustomRequest, res: Response) => {
 };
 
 const updateProduct = async (req: Request, res: Response) => {
-  const _id = req.params.id;
-  const {
-    name,
-    description,
-    img,
-    price,
-    category,
-    country,
-    deadline,
-  }: updateProduct = req.body;
+  const { _id } = req.params;
+  const { name, description, img, price, deadline }: updateProduct = req.body;
   await productService.updateProduct({
     _id,
     name,
     description,
     img,
     price,
-    category,
-    country,
     deadline,
   });
   res.status(201).json({ message: "updated product" });
 };
 
 const deleteProduct = async (req: Request, res: Response) => {
-  const _id = req.params.id;
+  const { _id } = req.params;
   await productService.deleteProduct(_id);
   res.status(204).json();
 };
 
 const getProduct = async (req: Request, res: Response) => {
-  const _id = req.params.id;
+  const { _id } = req.params;
   const productInfo = await productService.getProduct(_id);
   res.status(200).json({ productInfo });
 };
