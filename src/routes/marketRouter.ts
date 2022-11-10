@@ -13,4 +13,6 @@ router.patch(
   asyncHandler(marketController.updateMarket)
 );
 
+router.get("/", validateToken, asyncHandler(marketController.getMarket));
+
 export default router;

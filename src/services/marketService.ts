@@ -11,4 +11,8 @@ const updateMarket = async (marketData: updateMarket) => {
   await Market.updateOne({ _id }, { $set: marketData });
 };
 
-export { registerMarket, updateMarket };
+const getMarket = async () => {
+  return await Market.find().populate("productId");
+};
+
+export { registerMarket, updateMarket, getMarket };

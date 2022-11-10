@@ -19,4 +19,9 @@ const updateMarket = async (req: Request, res: Response) => {
   res.status(201).json({ message: "updated market" });
 };
 
-export { registerMarket, updateMarket };
+const getMarket = async (req: Request, res: Response) => {
+  const marketList = await marketService.getMarket();
+  res.status(200).json({ marketList });
+};
+
+export { registerMarket, updateMarket, getMarket };
