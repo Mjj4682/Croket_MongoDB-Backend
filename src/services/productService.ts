@@ -1,4 +1,5 @@
 import Product from "../models/Product";
+import Market from "../models/Market";
 import { createProduct, updateProduct } from "../models/IProduct";
 
 const createProduct = async (productData: createProduct) => {
@@ -13,6 +14,7 @@ const updateProduct = async (productData: updateProduct) => {
 
 const deleteProduct = async (_id: string) => {
   await Product.updateOne({ _id }, { $set: { isDeleted: true } });
+  await Market.deleteOne({ sellerId: _id });
 };
 
 const getProduct = async (_id: string) => {

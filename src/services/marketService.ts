@@ -1,5 +1,5 @@
 import Market from "../models/Market";
-import { IMarket, updateMarket } from "../models/IMarket";
+import { IMarket, updateMarket, getMarket } from "../models/IMarket";
 
 const registerMarket = async (marketData: IMarket) => {
   const market = new Market(marketData);
@@ -11,8 +11,15 @@ const updateMarket = async (marketData: updateMarket) => {
   await Market.updateOne({ _id }, { $set: marketData });
 };
 
-const getMarket = async () => {
-  return await Market.find().populate("productId");
+const getMarket = async (condition: getMarket) => {
+  const { category } = condition;
+  const { country } = condition;
+  const { search } = condition;
+  const { sort } = condition;
+  return await Market.find({ category, country }).populate({
+    path: "productId",
+    match: { isDeleted: false },
+  });
 };
 
 export { registerMarket, updateMarket, getMarket };
