@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { IMarket, updateMarket } from "../models/IMarket";
+import { IMarket, updateMarket, getMarket } from "../models/IMarket";
 import * as marketService from "../services/marketService";
 
 const registerMarket = async (req: Request, res: Response) => {
@@ -20,7 +20,13 @@ const updateMarket = async (req: Request, res: Response) => {
 };
 
 const getMarket = async (req: Request, res: Response) => {
-  const marketList = await marketService.getMarket();
+  const { category, country, search, sort }: getMarket = req.query;
+  const marketList = await marketService.getMarket({
+    category,
+    country,
+    search,
+    sort,
+  });
   res.status(200).json({ marketList });
 };
 

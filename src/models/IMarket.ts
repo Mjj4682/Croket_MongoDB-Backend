@@ -11,3 +11,10 @@ export interface updateMarket {
   category?: string;
   country?: string;
 }
+
+export interface getMarket {
+  category?: string;
+  country?: string;
+  search?: string;
+  sort?: string;
+}
