@@ -7,7 +7,7 @@ $ npm install
 ```
 
 ```bash
-env.sample file setting
+.env.sample file setting -> .env
 ```
 
 ## Running the app
