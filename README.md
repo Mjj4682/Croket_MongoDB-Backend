@@ -4,6 +4,14 @@
 
 > 추가 사항 구현 & 리팩토링(Refactoring) : 11월 11일 ~
 
+## 기술 스택
+
+- TypeScript
+- Node.js (Express.js)
+- MongoDB
+- Mongoose
+- Postman
+
 ## Installation
 
 ```bash
